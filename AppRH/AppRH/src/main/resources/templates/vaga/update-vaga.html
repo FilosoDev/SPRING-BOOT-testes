@@ -60,8 +60,8 @@
 		Nome: <input type="text" value="" name="nome" th:attr="value = ${vaga.nome}" />
 		<div class="row">
 			<div class="input-field col s6">
-				Descrição: <!-- <input type="text" value="" name="descricao" maxlength="254" th:attr="value = ${vaga.descricao}" /> -->
-				 <textarea class="form-control" value="" name="descricao" maxlength="254" th:attr="value = ${vaga.descricao}" rows="3"></textarea>
+				Descrição do cargo: <!-- <input type="text" value="" name="descricao" maxlength="254" th:attr="value = ${vaga.descricao}" /> -->
+				 <textarea class="form-control" name="descricao" maxlength="254" rows="3"  th:text="${vaga.descricao}" ></textarea>
 			</div>
 			<div class="input-field col s3">
 				Data: <input type="date" value="" name="data" th:attr="value = ${vaga.data}" />
@@ -71,7 +71,7 @@
 			</div>
 		</div>
 
-		<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+		<button type="submit" class="btn btn-success">Salvar</button>
 
 	</form>
 
