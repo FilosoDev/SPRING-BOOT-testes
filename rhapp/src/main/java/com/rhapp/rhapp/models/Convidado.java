@@ -3,12 +3,17 @@ package com.rhapp.rhapp.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+//import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Convidado {
 
 	@Id
+	@NotEmpty
 	private String rg;
+	
+	@NotEmpty
 	private String nomeConvidado;
 	
 	@ManyToOne
