@@ -74,7 +74,7 @@ public class EventoController {
 		er.delete(evento);
 		return "redirect:/eventos";
 	}
-	
+
 	
 	
 
@@ -106,5 +106,24 @@ public class EventoController {
 		String codigo = "" + codigoLong;
 		return "redirect:/" + codigo;
 	}
+	
+	// MÉTODOS QUE ATUALIZAM EVENTO
+	
+	// Formulario edição evento
+    @RequestMapping(value = "/editar-evento", method = RequestMethod.GET)
+    public ModelAndView editarEvent(long codigo) {
+        Evento evento = er.findByCodigo(codigo);
+        ModelAndView mv = new ModelAndView("evento/update-evento");
+        mv.addObject("evento", evento);
+        return mv;
+    }
+
+    // Updating evento
+    @RequestMapping(value = "/editar-evento", method = RequestMethod.POST)
+    public String updateEvent(@Valid Evento evento, BindingResult result, RedirectAttributes attributes) {
+        er.save(evento);
+        attributes.addFlashAttribute("success", "Evento alterado com sucesso!");
+        return "redirect:/";
+    }
 
 }
