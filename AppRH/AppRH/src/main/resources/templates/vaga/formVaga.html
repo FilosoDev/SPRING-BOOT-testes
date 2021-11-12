@@ -58,7 +58,7 @@
 			<div class="form-group">
 				<label for=""><b>Nome do cargo:</b> </label> <input type="text"
 					class="form-control" value="" placeholder="Insira o nome do cargo"
-					name="nome"> <small class="form-text text-muted"><i>*
+					name="nome" required> <small class="form-text text-muted"><i>*
 						Utilize nomes e termos mais utilizados no mercado.</i></small>
 			</div>
 
@@ -67,7 +67,7 @@
 
 					<div class="form-group">
 						<label for=""><b>Data de expiração:</b></label> <input type="date"
-							value="" name="data" class="form-control" /> <small
+							value="" name="data" class="form-control" required /> <small
 							class="form-text text-muted"><i>* Data em que a vaga
 								expira.</i></small>
 					</div>
@@ -76,7 +76,7 @@
 					<div class="form-group">
 						<label for=""><b>Salário:</b></label> R$ <input type="number"
 							pattern="^\d+(\.|\,)\d{2}$" value="" name="salario"
-							class="form-control" /> <small class="form-text text-muted"><i>*
+							class="form-control" required /> <small class="form-text text-muted"><i>*
 								Utilize valores considerando vírgula e ponto.</i></small>
 					</div>
 
@@ -88,7 +88,7 @@
 
 				<label for=""><b>Descrição da vaga:</b></label>
 				<textarea class="form-control" name="descricao" maxlength="254"
-					rows="3"></textarea>
+					rows="3" required></textarea>
 				<small class="form-text text-muted"><i>* Breve resumo da
 						vaga oferecida..</i></small>
 

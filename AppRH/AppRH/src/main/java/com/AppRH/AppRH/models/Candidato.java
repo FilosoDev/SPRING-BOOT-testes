@@ -16,6 +16,9 @@ public class Candidato {
 	@NotEmpty
 	private String nomeCandidato;
 	
+	@NotEmpty
+	private String email;
+	
 	@ManyToOne
 	private Vaga vaga;
 	
@@ -30,6 +33,14 @@ public class Candidato {
 	}
 	public void setNomeCandidato(String nomeCandidato) {
 		this.nomeCandidato = nomeCandidato;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public Vaga getVaga() {
 		return vaga;

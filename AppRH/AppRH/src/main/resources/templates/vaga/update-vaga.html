@@ -68,7 +68,7 @@
 			<div class="form-group">
 				<label for=""><b>Nome do cargo:</b> </label> <input type="text"
 					class="form-control" value="" name="nome"
-					th:attr="value = ${vaga.nome}" /> <small
+					th:attr="value = ${vaga.nome}" required /> <small
 					class="form-text text-muted"><i>* Utilize nomes e
 						termos mais utilizados no mercado.</i></small>
 			</div>
@@ -80,7 +80,7 @@
 					<div class="form-group">
 						<label for=""><b>Data de expiração:</b></label> <input type="date"
 							class="form-control" value="" name="data"
-							th:attr="value = ${vaga.data}" /><small
+							th:attr="value = ${vaga.data}" required /><small
 							class="form-text text-muted"><i>* Data em que a vaga
 								expira.</i></small>
 					</div>
@@ -90,7 +90,7 @@
 					<div class="form-group">
 						<label for=""><b>Salário:</b></label> R$ <input type="number"
 							class="form-control" pattern="^\d+(\.|\,)\d{2}$" value=""
-							name="salario" th:attr="value = ${vaga.salario}" /><small
+							name="salario" th:attr="value = ${vaga.salario}" required /><small
 							class="form-text text-muted"><i>* Utilize valores
 								considerando vírgula e ponto.</i></small>
 					</div>
@@ -99,9 +99,8 @@
 
 			<div class="form-group">
 				<label for=""><b>Descrição da vaga:</b></label>
-				<!-- <input type="text" value="" name="descricao" maxlength="254" th:attr="value = ${vaga.descricao}" /> -->
 				<textarea class="form-control" name="descricao" maxlength="254"
-					rows="3" th:text="${vaga.descricao}"></textarea>
+					rows="3" th:text="${vaga.descricao}" required ></textarea>
 				<small class="form-text text-muted"><i>* Breve resumo da
 						vaga oferecida..</i></small>
 			</div>
