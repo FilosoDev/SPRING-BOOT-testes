@@ -29,7 +29,7 @@ public class Vaga implements Serializable {
 	private String data;
 	
 	@NotEmpty
-	private String horario;
+	private String salario;
 	
 	@OneToMany
 	private List<Candidato> candidatos;
@@ -58,11 +58,11 @@ public class Vaga implements Serializable {
 	public void setData(String data) {
 		this.data = data;
 	}
-	public String getHorario() {
-		return horario;
+	public String getSalario() {
+		return salario;
 	}
-	public void setHorario(String horario) {
-		this.horario = horario;
+	public void setSalario(String salario) {
+		this.salario = salario;
 	}
 	
 	

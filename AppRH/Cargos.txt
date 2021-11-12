@@ -1,0 +1,17 @@
+Programador - Desenvolvedor C# Net
+
+Profissional que tenha atuação FullStack em programação com a linguagem C .NET, Banco de Dados SQL Server, Arquitetura MVC e Microserviços (WebAPIs). Vivência com Front end e Back end. Experiência com .NET Core, metodologia Ágil Scrum, WEB Forms.
+
+------------------------------------------------------
+
+Analista Devops
+
+Sólida experiência com DevOps; Experiência em soluções e arquitetura Cloud, AWS, Kubernetes, Docker, Banco de Dados, Jenkins; Conhecimento em estratégias e técnicas de monitoramento; Experiência com padrões de arquitetura: SOA, MVC etc.
+
+
+------------------------------------------------------
+
+
+Desenvolvedor FullStack Pleno/Sênior
+
+Net Core, Vue.js/React/Angular.
