@@ -11,35 +11,28 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-public class Vaga implements Serializable {
+public class Funcionario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long codigo;
+	private long id;
 
-	@NotEmpty
 	private String nome;
-
-	@NotEmpty
-	private String descricao;
-
-	@NotEmpty
 	private String data;
+	private String email;
 
-	@NotEmpty
-	private String salario;
-
+	// Um funcionario para muitos dependentes
 	@OneToMany
-	private List<Candidato> candidatos;
+	private List<Dependentes> dependentes;
 
-	public long getCodigo() {
-		return codigo;
+	public long getId() {
+		return id;
 	}
 
-	public void setCodigo(long codigo) {
-		this.codigo = codigo;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -50,14 +43,6 @@ public class Vaga implements Serializable {
 		this.nome = nome;
 	}
 
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
 	public String getData() {
 		return data;
 	}
@@ -66,12 +51,12 @@ public class Vaga implements Serializable {
 		this.data = data;
 	}
 
-	public String getSalario() {
-		return salario;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setSalario(String salario) {
-		this.salario = salario;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

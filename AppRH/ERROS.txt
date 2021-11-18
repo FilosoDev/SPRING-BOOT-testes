@@ -1,0 +1,15 @@
+PROBLEMAS RELATADOS:
+
+- Ao inserir as vagas pelo script do sql, a próxima inserção dá erro: here was an unexpected error (type=Internal Server Error, status=500).
+could not execute statement; SQL [n/a]; constraint [vaga.PRIMARY]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [vaga.PRIMARY]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+
+
+- A adição de candidato na vaga com o mesmo rg acontece normalmente, mas ao tentar excluir registro com rg duplicado, acontece o erro: There was an unexpected error (type=Internal Server Error, status=500).
+query did not return a unique result: 2; nested exception is javax.persistence.NonUniqueResultException: query did not return a unique result: 2
+org.springframework.dao.IncorrectResultSizeDataAccessException: query did not return a unique result: 2; nested exception is javax.persistence.NonUniqueResultException: query did not return a unique result: 2
+
+- Ao adicionar dependente, o cpf está sendo preenchido com alguma número sequencial
+
+
+- 

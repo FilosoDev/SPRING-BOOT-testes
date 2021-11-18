@@ -11,19 +11,19 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 @Configuration
 public class DataConfiguration {
-	
+
 	@Bean
-    public DataSource dataSource(){
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/AppRH?useTimezone=true&serverTimezone=UTC");
-        dataSource.setUsername("root");
-        dataSource.setPassword("admin");
-        return dataSource;
-    }
-	
+	public DataSource dataSource() {
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/AppRH?useTimezone=true&serverTimezone=UTC");
+		dataSource.setUsername("root");
+		dataSource.setPassword("admin");
+		return dataSource;
+	}
+
 	@Bean
-	public JpaVendorAdapter jpaVendorAdapter(){
+	public JpaVendorAdapter jpaVendorAdapter() {
 		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
 		adapter.setDatabase(Database.MYSQL);
 		adapter.setShowSql(true);
@@ -32,6 +32,5 @@ public class DataConfiguration {
 		adapter.setPrepareConnection(true);
 		return adapter;
 	}
-	
-	
+
 }

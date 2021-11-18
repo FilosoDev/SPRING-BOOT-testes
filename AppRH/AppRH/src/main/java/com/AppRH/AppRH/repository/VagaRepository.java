@@ -7,3 +7,6 @@ import com.AppRH.AppRH.models.Vaga;
 public interface VagaRepository extends CrudRepository<Vaga, String> {
 	Vaga findByCodigo(long codigo);
 }
+
+
+
