@@ -93,11 +93,11 @@ public class VagaController {
 		return "redirect:/{codigo}";
 	}
 
-	// deleta candidato pelo rg
+	
 	// alterado para deletar pelo id
 	@RequestMapping("/deletarCandidato")
-	public String deletarCandidato(String rg) {
-		Candidato candidato = cr.findByRg(rg);
+	public String deletarCandidato(long id) {
+		Candidato candidato = cr.findById(id);
 		cr.delete(candidato);
 
 		Vaga vaga = candidato.getVaga();

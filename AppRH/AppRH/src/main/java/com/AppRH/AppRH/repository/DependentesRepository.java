@@ -11,4 +11,7 @@ public interface DependentesRepository extends CrudRepository<Dependentes, Strin
 
 	// criado para tentar implementar delete
 	Dependentes findByCpf(long cpf);
+	Dependentes findById(long id);
+	
+	
 }

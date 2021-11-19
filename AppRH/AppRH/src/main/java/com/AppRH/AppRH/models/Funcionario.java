@@ -3,6 +3,7 @@ package com.AppRH.AppRH.models;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,7 +25,7 @@ public class Funcionario implements Serializable {
 	private String email;
 
 	// Um funcionario para muitos dependentes
-	@OneToMany
+	@OneToMany(mappedBy = "funcionario", cascade = CascadeType.REMOVE)
 	private List<Dependentes> dependentes;
 
 	public long getId() {

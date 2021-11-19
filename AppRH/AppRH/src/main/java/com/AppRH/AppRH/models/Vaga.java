@@ -3,6 +3,7 @@ package com.AppRH.AppRH.models;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,7 +32,8 @@ public class Vaga implements Serializable {
 	@NotEmpty
 	private String salario;
 
-	@OneToMany
+	// Isso permite que ao deletar uma vaga eu delete todos os dependentes
+	@OneToMany(mappedBy = "vaga", cascade = CascadeType.REMOVE)
 	private List<Candidato> candidatos;
 
 	public long getCodigo() {

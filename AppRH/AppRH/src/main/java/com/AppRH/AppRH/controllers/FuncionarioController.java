@@ -70,10 +70,19 @@ public class FuncionarioController {
 	}
 
 	@RequestMapping(value = "/dependentes/{id}", method = RequestMethod.POST)
-	public String dependentesPost(@PathVariable("id") long id, Dependentes dependentes) {
+	public String dependentesPost(@PathVariable("id") long id, Dependentes dependentes,
+			BindingResult result, RedirectAttributes attributes) {
+		
+		
+		if (result.hasErrors()) {
+			attributes.addFlashAttribute("mensagem", "Verifique os campos...");
+			return "redirect:/dependentes/{id}";
+		}
+		
 		Funcionario funcionario = fr.findById(id);
 		dependentes.setFuncionario(funcionario);
 		dr.save(dependentes);
+		attributes.addFlashAttribute("mensagem", "Dependente adicionado com sucesso!");
 		return "redirect:/dependentes/{id}";
 	}
 
@@ -112,8 +121,8 @@ public class FuncionarioController {
 
 	// método que deleta dependente (Arthur criou)
 	@RequestMapping("/deletarDependente")
-	public String deletarDependente(long cpf) {
-		Dependentes dependente = dr.findByCpf(cpf);
+	public String deletarDependente(long id) {
+		Dependentes dependente = dr.findById(id);
 		dr.delete(dependente);
 
 		// Aqui instancia um funcionário para retornar na página

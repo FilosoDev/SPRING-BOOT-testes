@@ -11,14 +11,16 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-public class Candidato implements Serializable {
+public class Candidato {
+	
 
+	
 	@Id
-	// @GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@NotEmpty
 	@GeneratedValue
 	private long id;
 
-	@NotEmpty
+	//@NotEmpty
 	private String rg;
 
 	@NotEmpty

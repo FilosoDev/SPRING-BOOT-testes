@@ -12,4 +12,7 @@ org.springframework.dao.IncorrectResultSizeDataAccessException: query did not re
 - Ao adicionar dependente, o cpf está sendo preenchido com alguma número sequencial
 
 
-- 
+- Ao deletar candidato com mesmo rg ele dá erro;
+
+
+do a negócios..praticamente lida com processos e controle relacionados a área de tecnologia.
