@@ -3451,3 +3451,48 @@
 2021-11-23 15:17:52,717 [Worker-247: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2021-11-23 15:17:52,717 [Worker-247: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\sn1067709\GIT\SPRING-BOOT-testes\AppRH\AppRH\src\test\resources
 2021-11-23 15:24:51,671 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2021-11-23 16:01:56,064 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-11-23 16:03:47,816 [Worker-0: Updating Maven Dependencies] ERROR o.e.m.c.i.p.r.ProjectRegistryRefreshJob - Cannot invoke "java.net.URI.getScheme()" because "uri" is null
+java.lang.NullPointerException: Cannot invoke "java.net.URI.getScheme()" because "uri" is null
+	at org.eclipse.core.internal.filesystem.InternalFileSystemCore.getStore(InternalFileSystemCore.java:107)
+	at org.eclipse.core.filesystem.EFS.getStore(EFS.java:479)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.getRemoteFile(ProjectRegistryManager.java:1212)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.toJavaIoFile(ProjectRegistryManager.java:1204)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.configureExecutionRequest(ProjectRegistryManager.java:925)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.createExecutionContext(ProjectRegistryManager.java:1034)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.execute(ProjectRegistryManager.java:1028)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.readMavenProjectFacades(ProjectRegistryManager.java:735)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:431)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:364)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.lambda$4(ProjectRegistryRefreshJob.java:141)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1370)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.lambda$0(ProjectRegistryRefreshJob.java:140)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:179)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:101)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1374)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.run(ProjectRegistryRefreshJob.java:84)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2021-11-23 16:33:03,778 [Worker-32: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.AppRH:AppRH:0.0.1-SNAPSHOT @ C:\Users\sn1067709\GIT\SPRING-BOOT-testes\AppRH\AppRH\pom.xml.
+2021-11-23 16:33:13,006 [Worker-32: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /AppRH/src/main/java
+2021-11-23 16:33:13,007 [Worker-32: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /AppRH/src/main/resources
+2021-11-23 16:33:13,009 [Worker-32: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /AppRH/src/main/resources
+2021-11-23 16:33:13,010 [Worker-32: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /AppRH/src/test/java
+2021-11-23 16:33:22,526 [Worker-32: Importing Maven projects] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-23 16:33:22,527 [Worker-32: Importing Maven projects] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-11-23 16:33:22,551 [Worker-32: Importing Maven projects] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-11-23 16:33:22,585 [Worker-32: Importing Maven projects] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 23 resources
+2021-11-23 16:33:23,026 [Worker-32: Importing Maven projects] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-23 16:33:23,026 [Worker-32: Importing Maven projects] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-11-23 16:33:23,026 [Worker-32: Importing Maven projects] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\sn1067709\GIT\SPRING-BOOT-testes\AppRH\AppRH\src\test\resources
+2021-11-23 16:33:28,193 [Worker-32: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 34 sec
+2021-11-23 16:33:30,431 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-23 16:33:30,431 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-11-23 16:33:30,433 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-11-23 16:33:30,434 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-11-23 16:33:30,438 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-11-23 16:33:30,438 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-11-23 16:33:30,438 [Worker-32: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\sn1067709\GIT\SPRING-BOOT-testes\AppRH\AppRH\src\test\resources
