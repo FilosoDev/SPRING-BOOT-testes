@@ -2,6 +2,7 @@ package com.AppRH.AppRH.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,16 +10,16 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Dependentes implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+public class Dependentes {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue
 	private long id;
 	
 	// @NotEmpty
-	private long cpf;
+	@Column(unique = true)
+	private String cpf;
+	
 	// @NotEmpty
 	private String nome;
 	// @NotEmpty
@@ -36,11 +37,11 @@ public class Dependentes implements Serializable {
 		this.funcionario = funcionario;
 	}
 
-	public long getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(long cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 

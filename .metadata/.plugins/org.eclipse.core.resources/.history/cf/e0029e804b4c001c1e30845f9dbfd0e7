@@ -1,0 +1,18 @@
+package com.AppRH.AppRH.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.AppRH.AppRH.repository.DependentesRepository;
+import com.AppRH.AppRH.repository.FuncionarioRepository;
+
+public class PesquisarController {
+
+	@Autowired
+	private FuncionarioRepository fr;
+	
+	private DependentesRepository dr;
+	
+	public ModelAndView listaPesquisar() {
+		
+	}
+}

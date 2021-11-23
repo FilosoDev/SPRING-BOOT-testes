@@ -9,4 +9,6 @@ public interface FuncionarioRepository extends CrudRepository<Funcionario, Strin
 
 	Funcionario findById(long id);
 
+	// criado para a busca
+	Funcionario findByNome(String nome);
 }

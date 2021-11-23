@@ -85,6 +85,12 @@ public class VagaController {
 			attributes.addFlashAttribute("mensagem", "Verifique os campos...");
 			return "redirect:/{codigo}";
 		}
+		
+		//consistência
+		if(cr.findByRg(candidato.getRg()) != null ) {
+			attributes.addFlashAttribute("mensagem_erro", "RG duplicado");
+			return "redirect:/{codigo}";
+		}
 
 		Vaga vaga = vr.findByCodigo(codigo);
 		candidato.setVaga(vaga);
@@ -94,15 +100,18 @@ public class VagaController {
 	}
 
 	
-	// alterado para deletar pelo id
+	// alterado para deletar pelo rg
 	@RequestMapping("/deletarCandidato")
-	public String deletarCandidato(long id) {
-		Candidato candidato = cr.findById(id);
-		cr.delete(candidato);
+	public String deletarCandidato(String rg) {
+		Candidato candidato = cr.findByRg(rg);
+		//cr.delete(candidato);
 
 		Vaga vaga = candidato.getVaga();
-		long codigoLong = vaga.getCodigo();
-		String codigo = "" + codigoLong;
+		//long codigoLong = vaga.getCodigo();
+		String codigo = "" + vaga.getCodigo();
+		
+		cr.delete(candidato);
+		
 		return "redirect:/" + codigo;
 	}
 
