@@ -1,4 +1,4 @@
-# App RH *versão 0.01* para estudos na Unidade Curricular 12
+# App RH *versão 0.01* para estudos na UC 12
 
 ## Java com SPRING-BOOT
 
