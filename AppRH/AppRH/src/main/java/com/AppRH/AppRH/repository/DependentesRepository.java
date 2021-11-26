@@ -17,4 +17,7 @@ public interface DependentesRepository extends CrudRepository<Dependentes, Strin
 	
 	// criado para implementar busca
 	List<Dependentes> findByNome(String nome);
+	
+	//teste
+	List<Dependentes> findByNomeContaining(String nome); 
 }

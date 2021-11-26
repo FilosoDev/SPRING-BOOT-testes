@@ -102,100 +102,198 @@
 
 
 						<div class="row form-group justify-content-center w-100 p-2">
-						
-							
+
+
 							<div class="col col-14 col-md-2">
 
-								<label for="cars" class="my-3 p-2 w-100"><h5>Tipo de
-										busca:</h5></label>
+								<label for="cars" class="my-3 p-2 w-100"><h5>Tipo
+										de busca:</h5></label>
 							</div>
-							
+
 							<div class="col col-14 col-md-2">
-							
-							
-								<select name="busca" id="busca" class="custom-select my-3 p-2 w-100">
-									<option selected>Escolher...</option>
+
+
+								<select name="busca" id="busca"
+									class="custom-select my-3 p-2 w-100" required>
+									<option value="">Escolher...</option>
+									<option value="todos">Todos</option>
 									<option value="nomefuncionario">Nome do Funcionário</option>
 									<option value="nomedependente">Nome do Dependente</option>
 									<option value="nomecandidato">Nome do Candidato</option>
-									<option value="titulovaga">Nome da Vaga</option>
+									<option value="titulovaga">Título da Vaga</option>
 								</select>
-						
-							
-						</div>
-						
+
+
+							</div>
+
 							<div class="col col-14 col-md-4">
 
-								<input
-									class="form-control form-control-lg my-3 p-2 w-100"
+								<input class="form-control form-control-lg my-3 p-2 w-100"
 									type="search" placeholder="Insira sua pesquisa..."
-									aria-label="Pesquisar" name="nome">
-						
+									aria-label="Pesquisar" name="nome" required>
+
 							</div>
-							
+
 							<div class="col col-14 col-md-2">
-							
+
 								<button class="btn btn-primary my-3 p-2 w-100" type="submit">Pesquisar</button>
-					
+
 							</div>
 						</div>
 
 					</form>
 				</div>
 			</div>
-			<br> 
-			<div class="container">
-				<h3>
-				<br>
-					Resultados da pesquisa por <i> <span th:text="${busca}"></span>
-					</i>
-				</h3>
-				<h4>
-					Resultado: <span th:text="${contador}"></span>
-				</h4>
+		</div>
+		<br>
+		<div class="container">
+			<h3>
+				<br> <i> <span th:text="${busca}"></span>
+				</i>
+			</h3>
+			<h4>
+				<span th:text="${contadormsg}"></span>
+			</h4>
 
-				<div th:each="lstdependente : ${lista}">
-					<span th:text="${lstdependente.nome}"></span> <br>
+		</div>
+		<!-- IF BUSCA POR NOME DE FUNCIONARIO -->
+		<div
+			th:if="(${busca}=='Resultados da pesquisa por nome do funcionario' and ${contador}>0) or (${busca}=='Resultados da pesquisa por todos' and ${isfunc})">
+			<table
+				class="table table-hover table-responsive w-auto table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Nome:</th>
+						<th scope="col">Data de nascimento:</th>
+						<th scope="col">E-mail:</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="funcionario : ${funcionario}">
 
-				</div>
+						<td><span th:text="${funcionario.nome}"></span></a></td>
+						<td><span th:text="${funcionario.data}"></span></a></td>
+						<td><span th:text="${funcionario.email}"></span></a></td>
 
-
-				<div th:each="funcionario : ${funcionario}">
-					<div class="row">
-						<p>
-							<span th:text="${funcionario.id}"></span>
-						</p>
-						<p>
-							<span th:text="${funcionario.nome}"></span>
-						</p>
-						<p>
-							<span th:text="${funcionario.data}"></span>
-						</p>
-						<p>
-							<span th:text="${funcionario.email}"></span>
-						</p>
-					</div>
-				</div>
-
-				<div th:each="dependente : ${dependentes}">
-					<span th:text="${dependente.cpf}"></span> <span
-						th:text="${dependente.nome}"></span> <span
-						th:text="${dependente.datanascimento}"></span> <br>
-				</div>
+					</tr>
+				</tbody>
+			</table>
 
 
+			<table
+				class="table table-hover table-responsive w-auto table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Nome do dependente:</th>
+						<th scope="col">CPF:</th>
+						<th scope="col">Data de nascimento:</th>
 
-			</div>
-
-
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="dependente : ${dependentes}">
+						<td><span th:text="${dependente.nome}"></span></td>
+						<td><span th:text="${dependente.cpf}"></span></td>
+						<td><span th:text="${dependente.datanascimento}"></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- ELSE -->
+		<div
+			th:unless="(${busca}=='Resultados da pesquisa por nome do funcionario' and ${contador}>0) or (${busca}=='Resultados da pesquisa por todos' and ${isfunc})">
 
 		</div>
 
+		<!-- IF BUSCA POR DEPENDENTES-->
+		<div
+			th:if="(${busca}=='Resultados da pesquisa por nome do dependente' and ${contador}>0) or (${busca}=='Resultados da pesquisa por todos' and ${isdependentes2})" >
 
 
+			<table
+				class="table table-hover table-responsive w-auto table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Nome do dependente:</th>
+						<th scope="col">CPF:</th>
+						<th scope="col">Data de nascimento:</th>
+						<th scope="col">Responsável:</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="dependente2 : ${dependentes2}">
+						<td><span th:text="${dependente2.nome}"></span></td>
+						<td><span th:text="${dependente2.cpf}"></span></td>
+						<td><span th:text="${dependente2.datanascimento}"></span></td>
+						<td><span th:text="${dependente2.funcionario.nome}"></span></td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- ELSE -->
+		<div
+			th:unless="(${busca}=='Resultados da pesquisa por nome do dependente' and ${contador}>0) or (${busca}=='Resultados da pesquisa por todos' and ${isdependentes2})">
+
+		</div>
+
+		<!-- IF BUSCA POR VAGA -->
+		<div
+			th:if="(${busca}=='Resultados da pesquisa por título da vaga' and ${contador}>0) or (${busca}=='Resultados da pesquisa por todos' and ${isvagas})">
+			<table
+				class="table table-hover table-responsive w-auto table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Nome da vaga:</th>
+						<th scope="col">Descrição:</th>
+						<th scope="col">Salário:</th>
+						<th scope="col">Expira:</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="vaga : ${vagas}">
+						<td><span th:text="${vaga.nome}"></span></td>
+						<td><span th:text="${vaga.descricao}"></span></td>
+						<td>R$ <span th:text="${vaga.salario}"></span></td>
+						<td><span th:text="${vaga.data}"></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- ELSE -->
+		<div
+			th:unless="(${busca}=='Resultados da pesquisa por título da vaga' and ${contador}>0) or (${busca}=='Resultados da pesquisa por todos' and ${isvagas})">
+
+		</div>
+		<div
+			th:if="(${busca}=='Resultados da pesquisa por nome do candidato' and ${contador}>0) or (${busca}=='Resultados da pesquisa por todos' and ${iscandidatos})">
+						
+			<table
+				class="table table-hover table-responsive w-auto table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Nome do candidato:</th>
+						<th scope="col">RG:</th>
+						<th scope="col">E-mail:</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr th:each="candidato : ${candidatos}">
+						<td><span th:text="${candidato.nomeCandidato}"></span></td>
+						<td><span th:text="${candidato.rg}"></span></td>
+						<td><span th:text="${candidato.email}"></span></td>
+					</tr>
 
 
+				</tbody>
+			</table>
+		</div>
+		<div
+			th:unless="(${busca}=='Resultados da pesquisa por nome do candidato' and ${contador}>0) or (${busca}=='Resultados da pesquisa por todos' and ${iscandidatos})">
+		</div>
 		<div style="height: 100px;"></div>
+
 
 		<div class="footer-copyright fixed-bottom bg-dark text-center py-3">
 			<span class="text-light align-middle">| App RH - UC 12 | - ©
@@ -208,7 +306,8 @@
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 			crossorigin="anonymous">
-	</script>
+			
+		</script>
 </body>
 
 </html>
