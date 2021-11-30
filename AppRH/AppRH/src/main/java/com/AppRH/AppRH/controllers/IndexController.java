@@ -1,16 +1,19 @@
 package com.AppRH.AppRH.controllers;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.AppRH.AppRH.models.Candidato;
 import com.AppRH.AppRH.models.Dependentes;
 import com.AppRH.AppRH.models.Funcionario;
 import com.AppRH.AppRH.models.Vaga;
+
 import com.AppRH.AppRH.repository.CandidatoRepository;
 import com.AppRH.AppRH.repository.DependentesRepository;
 import com.AppRH.AppRH.repository.FuncionarioRepository;
@@ -46,24 +49,29 @@ public class IndexController {
 
 		if (busca.equals("nomefuncionario") || busca.equals("todos")) {
 
-			Funcionario funcionario = fr.findByNome(nome);
+			Iterable<Funcionario> lstfuncionarios = fr.findByNomes(nome);
 
-			mv.addObject("funcionario", funcionario);
+			mv.addObject("funcionario", lstfuncionarios);
 
-			Iterable<Dependentes> dependentes = dr.findByFuncionario(funcionario);
-			mv.addObject("dependentes", dependentes);
+			int qtdfunc = 0;
+			for (@SuppressWarnings("unused") Funcionario funcionario : lstfuncionarios)
+				qtdfunc++;
 
-			contadorint = contadorint + ((funcionario != null) ? 1 : 0);
+			if (qtdfunc == 1)
+				imprimirDepententeUmFuncionario(nome, mv);
 
-			mv.addObject("isfunc", ((funcionario != null) ? true : false));
+			contadorint = contadorint + qtdfunc;
+
+			mv.addObject("isfunc", ((contadorint > 0) ? true : false));
 
 		}
 
 		if (busca.equals("nomedependente") || busca.equals("todos")) {
 
-			List<Dependentes> dependentes2 = dr.findByNomeContaining(nome);
+			List<Dependentes> dependentes2 = dr.findByNomes(nome);
 
 			mv.addObject("dependentes2", dependentes2);
+			
 			contadorint = contadorint + (dependentes2.size());
 
 			mv.addObject("isdependentes2", (dependentes2.size() > 0) ? true : false);
@@ -72,9 +80,10 @@ public class IndexController {
 
 		if (busca.equals("nomecandidato") || busca.equals("todos")) {
 
-			List<Candidato> candidatos = cr.findBynomeCandidato(nome);
+			List<Candidato> candidatos = cr.findByNomesCandidatos(nome);
 
 			contadorint = contadorint + (candidatos.size());
+			
 			mv.addObject("candidatos", candidatos);
 
 			mv.addObject("iscandidatos", (candidatos.size() > 0) ? true : false);
@@ -82,7 +91,7 @@ public class IndexController {
 
 		if (busca.equals("titulovaga") || busca.equals("todos")) {
 
-			List<Vaga> vagas = vr.findByNome(nome);
+			List<Vaga> vagas = vr.findByNomes(nome);
 
 			mv.addObject("vagas", vagas);
 
@@ -93,14 +102,27 @@ public class IndexController {
 
 		if (!busca.equals("todos"))
 			busca = (busca.indexOf("nome") >= 0) ? busca.replace("nome", "nome do ") : "título da vaga";
+		
 		busca = "Resultados da pesquisa por " + busca;
 		mv.addObject("busca", busca);
 
 		contador = contador + "" + contadorint;
+		
 		mv.addObject("contadormsg", contador);
 		mv.addObject("contador", contadorint);
 
 		return mv;
+	}
+
+	private void imprimirDepententeUmFuncionario(String nome, ModelAndView mv) {
+		Iterable<Dependentes> dependentes = dr.findByFuncionario(fr.findByNome(nome));
+
+		if (dependentes.iterator().hasNext() == false)
+			return;
+
+		mv.addObject("dependentes", dependentes);
+		mv.addObject("funcionarionome", nome);
+
 	}
 
 }

@@ -46,6 +46,8 @@
 								<< Listar Vagas>> </a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="/cadastrarVaga"> << Cadastrar Vaga>> </a></li>
+						<li class="nav-item"><a class="nav-link" href="/logout">
+								Sair </a></li>
 					</ul>
 				</div>
 			</div>
@@ -163,7 +165,7 @@
 				class="table table-hover table-responsive w-auto table-striped">
 				<thead>
 					<tr>
-						<th scope="col">Nome:</th>
+						<th scope="col">Nome do funcionário:</th>
 						<th scope="col">Data de nascimento:</th>
 						<th scope="col">E-mail:</th>
 					</tr>
@@ -179,26 +181,30 @@
 				</tbody>
 			</table>
 
+			<div th:if="${funcionarionome}">
 
-			<table
-				class="table table-hover table-responsive w-auto table-striped">
-				<thead>
-					<tr>
-						<th scope="col">Nome do dependente:</th>
-						<th scope="col">CPF:</th>
-						<th scope="col">Data de nascimento:</th>
+				<table
+					class="table table-hover table-responsive w-auto table-striped">
+					<thead>
+						<tr>
+							<th scope="col">Nome do dependente:</th>
+							<th scope="col">CPF:</th>
+							<th scope="col">Data de nascimento:</th>
 
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="dependente : ${dependentes}">
-						<td><span th:text="${dependente.nome}"></span></td>
-						<td><span th:text="${dependente.cpf}"></span></td>
-						<td><span th:text="${dependente.datanascimento}"></span></td>
-					</tr>
-				</tbody>
-			</table>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="dependente : ${dependentes}">
+							<td><span th:text="${dependente.nome}"></span></td>
+							<td><span th:text="${dependente.cpf}"></span></td>
+							<td><span th:text="${dependente.datanascimento}"></span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
+		<!-- ELSE -->
+		<div th:unless="${funcionarionome}"></div>
 		<!-- ELSE -->
 		<div
 			th:unless="(${busca}=='Resultados da pesquisa por nome do funcionario' and ${contador}>0) or (${busca}=='Resultados da pesquisa por todos' and ${isfunc})">
@@ -207,7 +213,7 @@
 
 		<!-- IF BUSCA POR DEPENDENTES-->
 		<div
-			th:if="(${busca}=='Resultados da pesquisa por nome do dependente' and ${contador}>0) or (${busca}=='Resultados da pesquisa por todos' and ${isdependentes2})" >
+			th:if="(${busca}=='Resultados da pesquisa por nome do dependente' and ${contador}>0) or (${busca}=='Resultados da pesquisa por todos' and ${isdependentes2})">
 
 
 			<table
@@ -267,7 +273,7 @@
 		</div>
 		<div
 			th:if="(${busca}=='Resultados da pesquisa por nome do candidato' and ${contador}>0) or (${busca}=='Resultados da pesquisa por todos' and ${iscandidatos})">
-						
+
 			<table
 				class="table table-hover table-responsive w-auto table-striped">
 				<thead>

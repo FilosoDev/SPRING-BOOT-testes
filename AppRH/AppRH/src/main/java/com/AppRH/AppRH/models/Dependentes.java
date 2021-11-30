@@ -1,11 +1,8 @@
 package com.AppRH.AppRH.models;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -15,11 +12,11 @@ public class Dependentes {
 	@Id
 	@GeneratedValue
 	private long id;
-	
+
 	// @NotEmpty
 	@Column(unique = true)
 	private String cpf;
-	
+
 	// @NotEmpty
 	private String nome;
 	// @NotEmpty

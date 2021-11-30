@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org"
+<html lang=”pt-br” xmlns:th="http://thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
@@ -12,6 +12,7 @@
 
 <!-- Bootstrap -->
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 
 <!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
 <!-- ALERTA: Respond.js não funciona se você visualizar uma página file:// -->
@@ -55,63 +56,27 @@
 
 	</header>
 
-
-
 	<div class="container">
 
-		<h1>Cadastro de Funcionário</h1>
-
-		<br>
-
-		<th:block th:include="mensagemValidacao"></th:block>
-
-		<form method="post">
-
-			<div class="form-group">
-				<label for=""><b>Nome:</b> </label> <input type="text"
-					class="form-control" value=""
-					placeholder="Insira o nome do funcionário" name="nome" required>
-				<small class="form-text text-muted"><i>* Nome completo.</i></small>
-			</div>
-
-			<div class="row">
-				<div class="col">
-
-					<div class="form-group">
-						<label for=""><b>Data de nascimento:</b></label> <input
-							type="date" value="" name="data" class="form-control" required />
-						<small class="form-text text-muted"><i>* Dia/Mês/Ano.</i></small>
-					</div>
-				</div>
-				<div class="col">
-					<label for=""><b>E-mail:</b> </label> <input type="text" value=""
-						name="email" class="form-control" placeholder="email@email.com"
-						required />
-				</div>
-
-			</div>
-			<button type="submit" class="btn btn-success">Adicionar
-				Funcionário</button>
-	</div>
-
-	<br>
-	<br>
-
-	</form>
-
+		<div class="jumbotron alert-danger">
+			<h3>
+				Oops. Aconteceu algo !!!! <br> Página não encontrada Ou serviço
+				não disponível
+			</h3>
+			<br>
+			<h5>
+				Descrição do erro.<br>
+				Status:<span th:text="${status}"></span> - 	Erro:<span th:text="${error}"></span>
+			</h5>
+		</div>
 
 	</div>
 
-
-
-	<div style="height: 100px;"></div>
 
 	<div class="footer-copyright fixed-bottom bg-dark text-center py-3">
 		<span class="text-light align-middle">| App RH - UC 12 | - ©
 			2022 Copyright: CTM Supervisão de Educação Online</span>
 	</div>
-
-
 
 	<!--JavaScript bootstrap-->
 	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
@@ -121,8 +86,6 @@
 		crossorigin="anonymous">
 		
 	</script>
-
-
 </body>
 
 </html>
